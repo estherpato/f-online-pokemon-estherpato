@@ -2,26 +2,38 @@ import React, { Component } from 'react';
 import '../stylesheets/App.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            pokeArray: [],
+        }
+
+
+    }
+    componentDidMount() {
+        const url = 'http://pokeapi.salestock.net/api/v2/pokemon/';
+        const emptyArray = []
+
+        for (let i = 1; i < 4; i++) {
+            fetch(url + i)
+                .then(res => res.json())
+                .then(data => {
+                    emptyArray.push(data)
+                })
+        }
+        console.log('poke call', emptyArray)
+    }
+
+
+
+    render() {
+        return (
+            <div className="App">
+
+            </div>
+        );
+    }
 }
 
 export default App;
