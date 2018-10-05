@@ -1,11 +1,58 @@
 .loading-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .loading-text {
-  font-family: 'Shadows Into Light', cursive;
-  font-size: 32px;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 32px;
+}
+
+.deco1 {
+    height: 100px;
+    width: 100px;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    transform: translate(-50%, -50%) rotate(45deg);
+    z-index: -1;
+}
+
+.deco2 {
+    height: 100px;
+    width: 100px;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%) rotate(45deg);
+    z-index: -1;
+}
+
+.mofletes {
+    bottom: 0;
+    height: 100px;
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+}
+
+.deco3 {
+    height: 200px;
+    width: 200px;
+    background-color: red;
+    border-radius: 100px;
+    transform: translateX(-50%);
+}
+
+.deco4 {
+    height: 200px;
+    width: 200px;
+    background-color: red;
+    border-radius: 100px;
+    transform: translate(50%, -200px);
+    position: absolute;
+    right: 0;
 }

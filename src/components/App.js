@@ -53,6 +53,7 @@ class App extends Component {
         } else {
             return (
                 <Fragment>
+                    <main>
                     <FilterInput
                         findMatches={this.findMatches}
                     />
@@ -60,6 +61,13 @@ class App extends Component {
                         pokeArray={this.state.pokeArray}
                         pokeArrayFiltered={this.state.pokeArrayFiltered}
                     />
+                    </main>
+                    <div className="deco1"></div>
+                    <div className="deco2"></div>
+                    <footer className="mofletes">
+                        <div className="deco3"></div>
+                        <div className="deco4"></div>
+                    </footer>
                 </Fragment>
             );
         }
