@@ -2,6 +2,8 @@
     height: 230px;
     width: 240px;
     border: 1px solid grey;
+    box-shadow: 1px 1px 8px #888888;
+    margin: 15px;
 }
 
 .img-container {
