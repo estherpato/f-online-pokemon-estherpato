@@ -17,10 +17,10 @@ class PokeCard extends Component {
                 <div className="info-container">
                     <h2 className="poke-name">{name}</h2>
                     <ul className="class-info">
-                        {types.map(type => {
+                        {types.map((type,i) => {
                             return (
                                 <li
-                                    key={id}
+                                    key={i}
                                     className="class-info__item"
                                 >
                                     {type}

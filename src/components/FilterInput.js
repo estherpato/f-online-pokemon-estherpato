@@ -10,7 +10,9 @@ class FilterInput extends Component {
                     className="input"
                     type="text"
                     placeholder="Filtra Pokemons por nombre"
-                    value="" />
+                    //value=""
+                    onChange={this.props.findMatches}
+                />
             </form>
         );
     }

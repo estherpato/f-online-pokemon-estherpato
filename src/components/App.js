@@ -9,9 +9,13 @@ class App extends Component {
 
         this.state = {
             pokeArray: [],
+            pokeArrayFiltered: [],
         }
 
+        this.findMatches = this.findMatches.bind(this);
+
     }
+
     componentDidMount() {
         // const url = 'http://pokeapi.salestock.net/api/v2/pokemon/';
         // const pokemonsFromFetch = [];
@@ -27,24 +31,34 @@ class App extends Component {
         this.setState({ pokeArray: [...this.props.pokemons] })
     }
 
+    findMatches(e) {
+        const valueOnInput = e.target.value;
+        const pokemonFiltered = this.state.pokeArray.filter(pokemon => {
+            return pokemon.name.includes(valueOnInput) ? true : false
+        })
+        this.setState({ pokeArrayFiltered: pokemonFiltered })
+    }
+
     render() {
-        console.log('estado', this.state.pokeArray)
         if (this.state.pokeArray.length === 0) {
             return (
                 <div className="loading-container">
-                <img
-                    src="https://vignette.wikia.nocookie.net/animal-jam-clans-1/images/f/f6/Pikachu_Themed_Page.gif"
-                    alt="Pikachu gif de espera"
-                />
-                <span className="loading-text">Cargando...</span>
+                    <img
+                        src="https://vignette.wikia.nocookie.net/animal-jam-clans-1/images/f/f6/Pikachu_Themed_Page.gif"
+                        alt="Pikachu gif de espera"
+                    />
+                    <span className="loading-text">Cargando...</span>
                 </div>
             );
         } else {
             return (
                 <Fragment>
-                    <FilterInput/>
-                    <PokeList 
+                    <FilterInput
+                        findMatches={this.findMatches}
+                    />
+                    <PokeList
                         pokeArray={this.state.pokeArray}
+                        pokeArrayFiltered={this.state.pokeArrayFiltered}
                     />
                 </Fragment>
             );
