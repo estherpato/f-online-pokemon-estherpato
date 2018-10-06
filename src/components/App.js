@@ -17,17 +17,10 @@ class App extends Component {
     }
 
     componentDidMount() {
-        const myHeader = new Headers();
-        const myPromise = {
-            method: 'GET',
-            headers: myHeader,
-            mode: 'cors',
-            cache: 'default'
-        };
-        const url = 'https://pokeapi.co/api/v2/pokemon/';
+        const url = 'http://pokeapi.salestock.net/api/v2/';
         const pokemonsFromFetch = [];
         for (let i = 1; i < 5; i++) {
-            fetch(url + i, myPromise)
+            fetch(url + i)
                 .then(res => res.json())
                 .then(data => {
                     pokemonsFromFetch.push(data);
