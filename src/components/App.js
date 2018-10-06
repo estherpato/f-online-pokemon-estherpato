@@ -30,6 +30,8 @@ class App extends Component {
                     console.log('Hubo un problema con la petición: ' + error.message)
                 })
         }
+
+        //this.setState({ pokeArray: [...this.props.pokemons] })
     }
 
     findMatches(e) {
