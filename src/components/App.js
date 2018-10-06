@@ -17,18 +17,26 @@ class App extends Component {
     }
 
     componentDidMount() {
-        // const url = 'http://pokeapi.salestock.net/api/v2/pokemon/';
-        // const pokemonsFromFetch = [];
-        // for (let i = 1; i < 5; i++) {
-        //     fetch(url + i)
-        //         .then(res => res.json())
-        //         .then(data => {
-        //             pokemonsFromFetch.push(data);
-        //             this.setState({ pokeArray: [...pokemonsFromFetch] })
-        //         })
-        // }
-
-        this.setState({ pokeArray: [...this.props.pokemons] })
+        const myHeader = new Headers();
+        const myPromise = {
+            method: 'GET',
+            headers: myHeader,
+            mode: 'cors',
+            cache: 'default'
+        };
+        const url = 'https://pokeapi.co/api/v2/pokemon/';
+        const pokemonsFromFetch = [];
+        for (let i = 1; i < 5; i++) {
+            fetch(url + i, myPromise)
+                .then(res => res.json())
+                .then(data => {
+                    pokemonsFromFetch.push(data);
+                    this.setState({ pokeArray: [...pokemonsFromFetch] })
+                })
+                .catch(error => {
+                    console.log('Hubo un problema con la petición: ' + error.message)
+                })
+        }
     }
 
     findMatches(e) {
@@ -54,14 +62,15 @@ class App extends Component {
             return (
                 <Fragment>
                     <main>
-                    <FilterInput
-                        findMatches={this.findMatches}
-                    />
-                    <PokeList
-                        pokeArray={this.state.pokeArray}
-                        pokeArrayFiltered={this.state.pokeArrayFiltered}
-                    />
+                        <FilterInput
+                            findMatches={this.findMatches}
+                        />
+                        <PokeList
+                            pokeArray={this.state.pokeArray}
+                            pokeArrayFiltered={this.state.pokeArrayFiltered}
+                        />
                     </main>
+
                     <div className="deco1"></div>
                     <div className="deco2"></div>
                     <footer className="mofletes">

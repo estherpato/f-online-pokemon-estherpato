@@ -23,7 +23,7 @@ class PokeCard extends Component {
                                     key={i}
                                     className="class-info__item"
                                 >
-                                    {type}
+                                    {type.type.name}
                                 </li>
                             );
                         })}
