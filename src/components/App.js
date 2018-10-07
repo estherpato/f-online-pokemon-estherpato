@@ -17,7 +17,6 @@ class App extends Component {
     }
 
     componentDidMount() {
-        const url = 'http://pokeapi.salestock.net/api/v2/pokemon/';
         const pokemonsFromFetch = [];
         for (let i = 1; i < 26; i++) {
             fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`)
@@ -48,7 +47,9 @@ class App extends Component {
                         src="https://vignette.wikia.nocookie.net/animal-jam-clans-1/images/f/f6/Pikachu_Themed_Page.gif"
                         alt="Pikachu gif de espera"
                     />
-                    <span className="loading-text">Cargando tus 25 Pokemons...</span>
+                    <span className="loading-text">
+                        Cargando tus 25 Pokemons...
+                    </span>
                 </div>
             );
         } else {
@@ -63,7 +64,7 @@ class App extends Component {
                             pokeArrayFiltered={this.state.pokeArrayFiltered}
                         />
                     </main>
-
+                    
                     <div className="deco1"></div>
                     <div className="deco2"></div>
                     <footer className="mofletes">
