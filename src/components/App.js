@@ -17,10 +17,10 @@ class App extends Component {
     }
 
     componentDidMount() {
-        const url = 'http://pokeapi.salestock.net/api/v2/';
+        const url = 'http://pokeapi.salestock.net/api/v2/pokemon/';
         const pokemonsFromFetch = [];
-        for (let i = 1; i < 5; i++) {
-            fetch(url + i)
+        for (let i = 1; i < 26; i++) {
+            fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`)
                 .then(res => res.json())
                 .then(data => {
                     pokemonsFromFetch.push(data);
@@ -30,27 +30,25 @@ class App extends Component {
                     console.log('Hubo un problema con la petición: ' + error.message)
                 })
         }
-
-        //this.setState({ pokeArray: [...this.props.pokemons] })
     }
 
     findMatches(e) {
         const valueOnInput = e.target.value;
         const pokemonFiltered = this.state.pokeArray.filter(pokemon => {
-            return pokemon.name.includes(valueOnInput) ? true : false
+            return pokemon.name.includes(valueOnInput.toLowerCase());
         })
         this.setState({ pokeArrayFiltered: pokemonFiltered })
     }
 
     render() {
-        if (this.state.pokeArray.length === 0) {
+        if (this.state.pokeArray.length < 25) {
             return (
                 <div className="loading-container">
                     <img
                         src="https://vignette.wikia.nocookie.net/animal-jam-clans-1/images/f/f6/Pikachu_Themed_Page.gif"
                         alt="Pikachu gif de espera"
                     />
-                    <span className="loading-text">Cargando...</span>
+                    <span className="loading-text">Cargando tus 25 Pokemons...</span>
                 </div>
             );
         } else {

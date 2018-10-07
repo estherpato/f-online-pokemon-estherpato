@@ -16,7 +16,7 @@ class PokeList extends Component {
                                     <PokeCard
                                         name={pokemon.name}
                                         id={pokemon.id}
-                                        image={pokemon.sprite.front_default}
+                                        image={pokemon.sprites.front_default}
                                         types={pokemon.types}
                                     />
                                 </li>
