@@ -71,12 +71,10 @@ class App extends Component {
                         />
                     </main>
                     
-                    <div className="deco1"></div>
-                    <div className="deco2"></div>
-                    <footer className="mofletes">
-                        <div className="deco3"></div>
-                        <div className="deco4"></div>
-                    </footer>
+                    <div className="top-corner top-corner__left"></div>
+                    <div className="top-corner top-corner__right"></div>
+                    <div className="bottom-corner bottom-corner__left"></div>
+                    <div className="bottom-corner bottom-corner__right"></div>
                 </Fragment>
             );
         }
