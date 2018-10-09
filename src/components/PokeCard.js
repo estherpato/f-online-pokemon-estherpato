@@ -16,7 +16,7 @@ class PokeCard extends Component {
                     <span className="id-container">ID / {id}</span>
                 </div>
                 <div className="info-container">
-                    <h2 className="poke-name">{name}</h2>
+                    <p className="poke-name">{name}</p>
                     <ul className="class-info">
                         {types.map((type,i) => {
                             return (
