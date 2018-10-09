@@ -57,3 +57,32 @@
 .class-info__item:first-child {
     margin-right: 5px;
 }
+
+.poison{
+    background-color: blueviolet;
+    color: white;
+}
+.grass{
+    background-color: green;
+    color: white;
+}
+.fire{
+    background-color: orange;
+    color: white;
+}
+.flying{
+    background-color: mediumturquoise;
+    color: black;
+}
+.water{
+    background-color: blue;
+    color: white;
+}
+.bug{
+    background-color: greenyellow;
+    color: black;
+}
+.electric{
+    background-color: yellow;
+    color: black;
+}

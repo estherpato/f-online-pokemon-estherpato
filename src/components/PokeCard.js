@@ -21,7 +21,7 @@ class PokeCard extends Component {
                             return (
                                 <li
                                     key={i}
-                                    className="class-info__item"
+                                    className={`class-info__item ${type.type.name}`}
                                 >
                                     {type.type.name}
                                 </li>
