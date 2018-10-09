@@ -10,6 +10,7 @@ class PokeCard extends Component {
                     <img
                         src={image}
                         alt={name}
+                        title={name}
                         className="img"
                     />
                     <span className="id-container">ID / {id}</span>
