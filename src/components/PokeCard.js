@@ -10,18 +10,19 @@ class PokeCard extends Component {
                     <img
                         src={image}
                         alt={name}
-                        className="img"
+                        title={name}
+                        className="poke-img"
                     />
                     <span className="id-container">ID / {id}</span>
                 </div>
                 <div className="info-container">
-                    <h2 className="poke-name">{name}</h2>
+                    <p className="poke-name">{name}</p>
                     <ul className="class-info">
                         {types.map((type,i) => {
                             return (
                                 <li
                                     key={i}
-                                    className="class-info__item"
+                                    className={`class-info__item ${type.type.name}`}
                                 >
                                     {type.type.name}
                                 </li>
