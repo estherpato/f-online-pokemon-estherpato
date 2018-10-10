@@ -22,5 +22,12 @@
     "not ie <= 11",
     "not op_mini all"
   ],
+
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true
+  },
+  
   "homepage": "./"
 }

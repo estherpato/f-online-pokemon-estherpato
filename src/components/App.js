@@ -10,6 +10,7 @@ class App extends Component {
         this.state = {
             pokeArray: JSON.parse(localStorage.getItem("lastRequest")) || [],
             pokeArrayFiltered: [],
+            evolutionChain: JSON.parse(localStorage.getItem("chain")) || [],
             value: '',
             fillInput: false,
         }
@@ -20,23 +21,43 @@ class App extends Component {
 
     componentDidMount() {
         const pokemonsFromFetch = [];
-        if (this.state.pokeArray.length === 0) {
             for (let i = 1; i < 26; i++) {
                 fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`)
                     .then(res => res.json())
                     .then(data => {
                         pokemonsFromFetch.push(data);
-                        if (pokemonsFromFetch.length === 25) {
-                            // remember localStorage only supports strings
-                            localStorage.setItem("lastRequest", JSON.stringify(pokemonsFromFetch));
-                        }
+                        this.getSpecies(data.species.url)
+                        
+                        // if (pokemonsFromFetch.length === 25) {
+                        //     // remember localStorage only supports strings
+                        //     localStorage.setItem("lastRequest", JSON.stringify(pokemonsFromFetch));
+                        // }
                         this.setState({ pokeArray: [...pokemonsFromFetch] });
                     })
                     .catch(error => {
                         console.log('Hubo un problema con la petición: ' + error.message)
                     })
-            }
         }
+    }
+
+    getSpecies(url) {
+        fetch(url)
+            .then(res => res.json())
+            .then(data => this.getEvoChain(data.evolution_chain.url))
+    }
+
+    getEvoChain(url) {
+        const evoChain = [];
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                evoChain.push(data.chain);
+                console.log('2:', evoChain)
+                if (evoChain.length === 25) {
+                    localStorage.setItem("chain", JSON.stringify(evoChain));
+                }
+                this.setState({ evolutionChain: [...evoChain] }, () => console.log('3:', evoChain))
+            })
     }
 
     hideLabel(event) {
