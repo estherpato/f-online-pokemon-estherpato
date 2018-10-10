@@ -8,7 +8,7 @@ class FilterInput extends Component {
         return (
             <div className="input-form">
                 <label
-                    for="searchbar"
+                    htmlFor="searchbar"
                     className={labelClass}
                 >
                     Filtra Pokemons por nombre...
@@ -18,6 +18,7 @@ class FilterInput extends Component {
                     type="text"
                     id="searchbar"
                     name="searchbar"
+                    value={this.props.inputValue}
                     onChange={this.props.findMatches}
                 />
             </div>

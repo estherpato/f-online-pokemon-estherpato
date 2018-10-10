@@ -4,11 +4,11 @@ import '../stylesheets/PokeList.css';
 
 class PokeList extends Component {
     render() {
-        const { pokeArray, pokeArrayFiltered } = this.props;
-        if (pokeArrayFiltered.length === 0) {
+        const { pokeArray, pokeArrayFiltered, inputValue } = this.props;
+        if (pokeArrayFiltered.length !== 0) {
             return (
                 <ul className="poke-list">
-                    {pokeArray
+                    {pokeArrayFiltered
                         .sort((a, b) => a.id - b.id)
                         .map((pokemon) => {
                             return (
@@ -25,10 +25,15 @@ class PokeList extends Component {
                 </ul>
             );
         }
+        else if (pokeArrayFiltered.length === 0 && inputValue !== '') {
+            return (
+                <div className="invalid-search">Por favor, introduce una búsqueda válida ϞϞ(๑⚈ ․̫ ⚈๑)∩</div>
+            );
+        }
         else {
             return (
                 <ul className="poke-list">
-                    {pokeArrayFiltered
+                    {pokeArray
                         .sort((a, b) => a.id - b.id)
                         .map((pokemon) => {
                             return (

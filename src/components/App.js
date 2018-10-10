@@ -10,6 +10,7 @@ class App extends Component {
         this.state = {
             pokeArray: JSON.parse(localStorage.getItem("lastRequest")) || [],
             pokeArrayFiltered: [],
+            value: '',
             fillInput: false,
         }
 
@@ -50,7 +51,8 @@ class App extends Component {
 
         this.setState({
             pokeArrayFiltered: pokemonFiltered,
-            fillInput: this.hideLabel(e.target.value)
+            fillInput: this.hideLabel(e.target.value),
+            value: valueOnInput,
         })
     }
 
@@ -74,10 +76,12 @@ class App extends Component {
                         <FilterInput
                             findMatches={this.findMatches}
                             fillInput={this.state.fillInput}
+                            inputValue={this.state.value}
                         />
                         <PokeList
                             pokeArray={this.state.pokeArray}
                             pokeArrayFiltered={this.state.pokeArrayFiltered}
+                            inputValue={this.state.value}
                         />
                     </main>
 
