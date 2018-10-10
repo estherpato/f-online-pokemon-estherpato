@@ -10,10 +10,11 @@ class App extends Component {
         this.state = {
             pokeArray: JSON.parse(localStorage.getItem("lastRequest")) || [],
             pokeArrayFiltered: [],
+            fillInput: false,
         }
 
         this.findMatches = this.findMatches.bind(this);
-
+        this.hideLabel = this.hideLabel.bind(this);
     }
 
     componentDidMount() {
@@ -37,12 +38,20 @@ class App extends Component {
         }
     }
 
+    hideLabel(event) {
+        return event !== '' ? true : false;
+    }
+
     findMatches(e) {
         const valueOnInput = e.target.value;
         const pokemonFiltered = this.state.pokeArray.filter(pokemon => {
             return pokemon.name.includes(valueOnInput.toLowerCase());
+        });
+
+        this.setState({
+            pokeArrayFiltered: pokemonFiltered,
+            fillInput: this.hideLabel(e.target.value)
         })
-        this.setState({ pokeArrayFiltered: pokemonFiltered })
     }
 
     render() {
@@ -64,6 +73,7 @@ class App extends Component {
                     <main>
                         <FilterInput
                             findMatches={this.findMatches}
+                            fillInput={this.state.fillInput}
                         />
                         <PokeList
                             pokeArray={this.state.pokeArray}

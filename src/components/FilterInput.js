@@ -3,15 +3,21 @@ import '../stylesheets/FilterInput.css';
 
 class FilterInput extends Component {
     render() {
+        let labelClass = this.props.fillInput ? 'input-label--hidden' : 'input-label'
+
         return (
             <div className="input-form">
-                <label for="searchbar" className="input-label">Filtra Pokemons por nombre...</label>
+                <label
+                    for="searchbar"
+                    className={labelClass}
+                >
+                    Filtra Pokemons por nombre...
+                </label>
                 <input
                     className="input"
                     type="text"
                     id="searchbar"
                     name="searchbar"
-                    placeholder="Filtra Pokemons por nombre..."
                     onChange={this.props.findMatches}
                 />
             </div>

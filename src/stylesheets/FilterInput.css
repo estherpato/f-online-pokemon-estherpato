@@ -1,10 +1,20 @@
 .input-label {
+    position: absolute;
+    bottom: 0;
+    transform: translateY(-50%);
+    font-size: 16px;
+    font-family: 'Nunito', sans-serif;
+    color: grey;
+}
+
+.input-label--hidden {
     display: none;
 }
 
 .input-form {
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 .input {
@@ -17,12 +27,7 @@
     font-size: 16px;
     font-family: 'Nunito', sans-serif;
     box-shadow: 1px 1px 8px grey;
-}
-
-.input::placeholder {
-    text-align: center;
-    font-size: 16px;
-    font-family: 'Nunito', sans-serif;
+    
 }
 
 @media all and (min-width: 768px) {
@@ -31,7 +36,7 @@
         font-size: 20px;
         padding-left: 20px;
     }
-    .input::placeholder {
+    .input-label {
         font-size: 20px;
     }
 }
