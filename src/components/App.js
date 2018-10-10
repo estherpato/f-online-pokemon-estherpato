@@ -8,7 +8,7 @@ class App extends Component {
         super(props);
 
         this.state = {
-            pokeArray: [],
+            pokeArray: JSON.parse(localStorage.getItem("lastRequest")) || [],
             pokeArrayFiltered: [],
         }
 
@@ -18,16 +18,22 @@ class App extends Component {
 
     componentDidMount() {
         const pokemonsFromFetch = [];
-        for (let i = 1; i < 26; i++) {
-            fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`)
-                .then(res => res.json())
-                .then(data => {
-                    pokemonsFromFetch.push(data);
-                    this.setState({ pokeArray: [...pokemonsFromFetch] })
-                })
-                .catch(error => {
-                    console.log('Hubo un problema con la petición: ' + error.message)
-                })
+        if (this.state.pokeArray.length === 0) {
+            for (let i = 1; i < 26; i++) {
+                fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`)
+                    .then(res => res.json())
+                    .then(data => {
+                        pokemonsFromFetch.push(data);
+                        if (pokemonsFromFetch.length === 25) {
+                            // remember localStorage only supports strings
+                            localStorage.setItem("lastRequest", JSON.stringify(pokemonsFromFetch));
+                        }
+                        this.setState({ pokeArray: [...pokemonsFromFetch] });
+                    })
+                    .catch(error => {
+                        console.log('Hubo un problema con la petición: ' + error.message)
+                    })
+            }
         }
     }
 
@@ -64,13 +70,11 @@ class App extends Component {
                             pokeArrayFiltered={this.state.pokeArrayFiltered}
                         />
                     </main>
-                    
-                    <div className="deco1"></div>
-                    <div className="deco2"></div>
-                    <footer className="mofletes">
-                        <div className="deco3"></div>
-                        <div className="deco4"></div>
-                    </footer>
+
+                    <div className="top-corner top-corner__left"></div>
+                    <div className="top-corner top-corner__right"></div>
+                    <div className="bottom-corner bottom-corner__left"></div>
+                    <div className="bottom-corner bottom-corner__right"></div>
                 </Fragment>
             );
         }
