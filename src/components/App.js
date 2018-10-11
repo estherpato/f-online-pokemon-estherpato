@@ -3,6 +3,8 @@ import PokeList from './PokeList.js';
 import FilterInput from './FilterInput.js';
 import '../stylesheets/App.css';
 
+const evoChain = [];
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -10,7 +12,7 @@ class App extends Component {
         this.state = {
             pokeArray: JSON.parse(localStorage.getItem("lastRequest")) || [],
             pokeArrayFiltered: [],
-            evolutionChain: JSON.parse(localStorage.getItem("chain")) || [],
+            evolutionChain: JSON.parse(localStorage.getItem("evoChain")) || [],
             value: '',
             fillInput: false,
         }
@@ -21,6 +23,7 @@ class App extends Component {
 
     componentDidMount() {
         const pokemonsFromFetch = [];
+        
             for (let i = 1; i < 26; i++) {
                 fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`)
                     .then(res => res.json())
@@ -28,10 +31,10 @@ class App extends Component {
                         pokemonsFromFetch.push(data);
                         this.getSpecies(data.species.url)
                         
-                        // if (pokemonsFromFetch.length === 25) {
-                        //     // remember localStorage only supports strings
-                        //     localStorage.setItem("lastRequest", JSON.stringify(pokemonsFromFetch));
-                        // }
+                        if (pokemonsFromFetch.length === 25) {
+                            // remember localStorage only supports strings
+                            localStorage.setItem("lastRequest", JSON.stringify(pokemonsFromFetch));
+                        }
                         this.setState({ pokeArray: [...pokemonsFromFetch] });
                     })
                     .catch(error => {
@@ -47,16 +50,15 @@ class App extends Component {
     }
 
     getEvoChain(url) {
-        const evoChain = [];
         fetch(url)
             .then(res => res.json())
             .then(data => {
-                evoChain.push(data.chain);
+                evoChain.push(data);
                 console.log('2:', evoChain)
                 if (evoChain.length === 25) {
-                    localStorage.setItem("chain", JSON.stringify(evoChain));
+                    localStorage.setItem("evoChain", JSON.stringify(evoChain));
                 }
-                this.setState({ evolutionChain: [...evoChain] }, () => console.log('3:', evoChain))
+                this.setState({ evolutionChain: [...evoChain] })
             })
     }
 
