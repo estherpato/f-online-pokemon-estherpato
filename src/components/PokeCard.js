@@ -3,7 +3,7 @@ import '../stylesheets/PokeCard.css';
 
 class PokeCard extends Component {
     render() {
-        const { name, id, image, types } = this.props
+        const { name, id, image, types, species } = this.props;
         return (
             <div className="card-container">
                 <div className="img-container">
@@ -29,6 +29,9 @@ class PokeCard extends Component {
                             );
                         })}
                     </ul>
+                    <div className="evolution-info">
+                       
+                    </div>
                 </div>
             </div>
         );

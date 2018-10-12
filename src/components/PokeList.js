@@ -4,11 +4,11 @@ import '../stylesheets/PokeList.css';
 
 class PokeList extends Component {
     render() {
-        const { pokeArray, pokeArrayFiltered, inputValue } = this.props;
-        if (pokeArrayFiltered.length !== 0) {
+        const { pokeArray, pokemonFiltered, inputValue, pokeSpecies } = this.props;
+        if (pokemonFiltered.length !== 0) {
             return (
                 <ul className="poke-list">
-                    {pokeArrayFiltered
+                    {pokemonFiltered
                         .sort((a, b) => a.id - b.id)
                         .map((pokemon) => {
                             return (
@@ -18,6 +18,7 @@ class PokeList extends Component {
                                         id={pokemon.id}
                                         image={pokemon.sprites.front_default}
                                         types={pokemon.types}
+                                        
                                     />
                                 </li>
                             );
@@ -25,7 +26,7 @@ class PokeList extends Component {
                 </ul>
             );
         }
-        else if (pokeArrayFiltered.length === 0 && inputValue !== '') {
+        else if (pokemonFiltered.length === 0 && inputValue !== '') {
             return (
                 <div className="invalid-search">Por favor, introduce una búsqueda válida ϞϞ(๑⚈ ․̫ ⚈๑)∩</div>
             );
