@@ -31,7 +31,11 @@ class PokeCard extends Component {
                         })}
                     </ul>
                     <div className="evolution-info">
-                        {evolvesFromName}
+                        <span
+                            className="evolution-info__text"
+                        >
+                            {evolvesFromName}
+                        </span>
                     </div>
                 </div>
             </div>
