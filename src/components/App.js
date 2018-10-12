@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
-import PokeList from './PokeList.js';
-import FilterInput from './FilterInput.js';
+import { Route, Switch } from 'react-router-dom';
+import Home from './Home.js';
+import PokeDetail from './PokeDetail.js';
 import '../stylesheets/App.css';
 
 const evoChain = [];
@@ -97,32 +98,7 @@ class App extends Component {
         console.log('Array para sacar info', this.state.pokeArray[1]);
         if (this.state.pokeArray.length < 25) {
             return (
-                <div className="loading-container">
-                    <img
-                        src="https://vignette.wikia.nocookie.net/animal-jam-clans-1/images/f/f6/Pikachu_Themed_Page.gif"
-                        alt="Pikachu gif de espera"
-                    />
-                    <span className="loading-text">
-                        Cargando tus 25 Pokemons...
-                    </span>
-                </div>
-            );
-        } else {
-            return (
                 <Fragment>
-                    <main>
-                        <FilterInput
-                            findMatches={this.findMatches}
-                            fillInput={fillInput}
-                            inputValue={value}
-                        />
-                        <PokeList
-                            pokeArray={pokeArray}
-                            pokemonFiltered={pokemonFiltered}
-                            inputValue={value}
-                        />
-                    </main>
-
                     <div className="top-corner top-corner__left"></div>
                     <div className="top-corner top-corner__right"></div>
                     <div className="bottom-corner bottom-corner__left"></div>
