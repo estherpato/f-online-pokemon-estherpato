@@ -23,24 +23,19 @@ class App extends Component {
 
     componentDidMount() {
         const pokemonsFromFetch = [];
-        if (this.state.pokeArray.length === 0){
-        for (let i = 1; i < 26; i++) {
-            fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`)
-                .then(res => res.json())
-                .then(data => {
-                    pokemonsFromFetch.push(data);
-                    this.getSpecies(data.species.url, pokemonsFromFetch)
-
-                    // if (pokemonsFromFetch.length === 25) {
-                    //     // remember localStorage only supports strings
-                    //     localStorage.setItem("lastRequest", JSON.stringify(pokemonsFromFetch));
-                    // }
-                    // this.setState({ pokeArray: [...pokemonsFromFetch] });
-                })
-                .catch(error => {
-                    console.log('Hubo un problema con la petición: ' + error.message)
-                })
-        }}
+        if (this.state.pokeArray.length === 0) {
+            for (let i = 1; i < 26; i++) {
+                fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`)
+                    .then(res => res.json())
+                    .then(data => {
+                        pokemonsFromFetch.push(data);
+                        this.getSpecies(data.species.url, pokemonsFromFetch)
+                    })
+                    .catch(error => {
+                        console.log('Hubo un problema con la petición: ' + error.message)
+                    })
+            }
+        }
     }
 
     getSpecies(url, pokeArray) {
@@ -49,10 +44,6 @@ class App extends Component {
             .then(data => {
                 species.push(data)
                 this.getEvoChain(data.evolution_chain.url, pokeArray, species)
-                // if (species.length === 25) {
-                //     localStorage.setItem("pokeSpecies", JSON.stringify(species));
-                // }
-                // this.setState({ pokeSpecies: [...species] })
             })
     }
 
@@ -79,8 +70,8 @@ class App extends Component {
 
             if (pokeArrayCompleted.length === 25) {
                 localStorage.setItem("pokemon", JSON.stringify(pokeArrayCompleted));
-        }
             }
+        }
         this.setState({ pokemons: [...pokeArrayCompleted] })
     }
 

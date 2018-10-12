@@ -4,7 +4,7 @@ import '../stylesheets/PokeList.css';
 
 class PokeList extends Component {
     render() {
-        const { pokeArray, pokemonFiltered, inputValue, pokeSpecies } = this.props;
+        const { pokeArray, pokemonFiltered, inputValue } = this.props;
         if (pokemonFiltered.length !== 0) {
             return (
                 <ul className="poke-list">
@@ -18,7 +18,7 @@ class PokeList extends Component {
                                         id={pokemon.id}
                                         image={pokemon.sprites.front_default}
                                         types={pokemon.types}
-                                        
+                                        evolution={pokemon.species.evolves_from_species}
                                     />
                                 </li>
                             );
@@ -44,6 +44,7 @@ class PokeList extends Component {
                                         id={pokemon.id}
                                         image={pokemon.sprites.front_default}
                                         types={pokemon.types}
+                                        evolution={pokemon.species.evolves_from_species}
                                     />
                                 </li>
                             );
