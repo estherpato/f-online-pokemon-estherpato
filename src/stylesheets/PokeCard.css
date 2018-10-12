@@ -1,14 +1,14 @@
 .card-container {
     height: 260px;
     width: 240px;
-    border: 1px solid grey;
+    border: 1px solid 888888;
     box-shadow: 1px 1px 8px #888888;
     margin: 15px;
 }
 
 .img-container {
     height: 50%;
-    background-color: rgb(224, 222, 222);
+    background-color: #E0DEDE;
     position: relative;
     display: flex;
     justify-content: center;
@@ -16,19 +16,19 @@
 }
 
 .id-container {
-    background-color: rgb(197, 197, 197);
+    background-color: #C5C5C5;
     font-size: 10px;
     display: inline-block;
     padding: 3px 6px;
     position: absolute;
     bottom: 0;
     left: 0;
-    color: brown;
+    color: #A52A2A;
 }
 
 .info-container {
     height: 50%;
-    background-color: white;
+    background-color: #FFF;
     display: flex;
     flex-direction: column;
     padding: 15px 0  0 20px;
@@ -59,12 +59,12 @@
 .class-info {
     font-size: 10px;
     text-transform: uppercase;
-    color: brown;
+    color: #A52A2A;
     display: flex;
 }
 
 .class-info__item {
-    border: 1px solid grey;
+    border: 1px solid #888;
     border-radius: 5px;
     padding: 0 5px;
     margin-top: 5px;
@@ -75,46 +75,46 @@
 }
 
 .poison {
-    background-color: blueviolet;
-    color: white;
+    background-color: #8A2AE2;
+    color: #FFF;
 }
 
 .grass {
-    background-color: green;
-    color: white;
+    background-color: #008000;
+    color: #FFF;
 }
 
 .fire {
-    background-color: orange;
-    color: white;
+    background-color: #FF8900;
+    color: #000;
 }
 
 .flying {
-    background-color: mediumturquoise;
-    color: black;
+    background-color: #8FB2C7;
+    color: #000;
 }
 
 .water {
-    background-color: blue;
-    color: white;
+    background-color: #0000E1;
+    color: #FFF;
 }
 
 .bug {
-    background-color: greenyellow;
-    color: black;
+    background-color: #ADFF2F;
+    color: #000;
 }
 
 .electric {
-    background-color: yellow;
-    color: black;
+    background-color: #FFFF00;
+    color: #000;
 }
 
 .evolution-info {
     margin-top: 10px;
-    color: grey;
+    color: #888;
     font-size: 14px;
     width: 100px;
-    border-left: 2px solid grey;
+    border-left: 2px solid #888;
 }
 
 .evolution-info__text {
