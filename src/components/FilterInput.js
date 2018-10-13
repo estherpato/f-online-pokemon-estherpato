@@ -11,7 +11,7 @@ class FilterInput extends Component {
                     htmlFor="searchbar"
                     className={labelClass}
                 >
-                    Filtra Pokemons por nombre...
+                    Filter Pokemons by name...
                 </label>
                 <input
                     className="input"

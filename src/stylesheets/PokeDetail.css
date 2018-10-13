@@ -1,0 +1,66 @@
+.details-container {
+    margin-top: 50px;
+    line-height: 30px;
+}
+
+.pokemon-name {
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.abilities-item {
+    list-style: square;
+    margin-left: 25px;
+}
+
+.pokeimg-container {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #000;
+}
+
+.pokeinfo {
+    margin-top: 20px;
+}
+
+.evochain-info {
+    display: inline-block;
+    max-width: 280px;
+    text-align: center;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 10px;
+    background-color: #FF0000;
+    color: #000;
+    font-weight: 600;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+@media all and (min-width: 1200px) {
+    .pokeinfo-container {
+        display: flex;
+        margin-top: 20px;
+    }
+
+    .pokeimg-container {
+        flex-direction: column;
+        border-bottom: none;
+        border-right: 1px solid #000;
+    }
+
+    .pokeinfo {
+        margin-top: none;
+        margin-left: 15px;
+    }
+
+    .evochain-info {
+        max-width: none;
+    }
+
+    .back-btn {
+        margin-top: 30px;
+    }
+}

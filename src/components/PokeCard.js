@@ -4,7 +4,7 @@ import '../stylesheets/PokeCard.css';
 class PokeCard extends Component {
     render() {
         const { name, id, image, types, evolution } = this.props;
-        let evolvesFromName = evolution !== null ? `Evoluciona de ${evolution.name}` : '';
+        let evolvesFromName = evolution !== null ? `Evolves from ${evolution.name}` : '';
         return (
             <div className="card-container">
                 <div className="img-container">

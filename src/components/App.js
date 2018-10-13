@@ -95,7 +95,7 @@ class App extends Component {
 
     render() {
         const { pokeArray, pokemonFiltered, value, fillInput } = this.state;
-        console.log('Array para sacar info', this.state.pokeArray[1]);
+        console.log('Array para sacar info', this.state.pokeArray[18]);
         return (
             <Fragment>
                 <Switch>
@@ -114,7 +114,6 @@ class App extends Component {
                         render={(props) => <PokeDetail
                             match={props.match}
                             pokeArray={pokeArray}
-                            
                         //onClickHandler={this.handleButton}
                         />}
                     />
