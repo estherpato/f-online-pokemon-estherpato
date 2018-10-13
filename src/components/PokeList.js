@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PokeCard from './PokeCard.js';
 import '../stylesheets/PokeList.css';
 
 class PokeList extends Component {
     render() {
         const { pokeArray, pokemonFiltered, inputValue } = this.props;
+
         if (pokemonFiltered.length !== 0) {
             return (
                 <ul className="poke-list">
@@ -13,13 +15,15 @@ class PokeList extends Component {
                         .map((pokemon) => {
                             return (
                                 <li key={pokemon.id}>
-                                    <PokeCard
-                                        name={pokemon.name}
-                                        id={pokemon.id}
-                                        image={pokemon.sprites.front_default}
-                                        types={pokemon.types}
-                                        evolution={pokemon.species.evolves_from_species}
-                                    />
+                                    <Link to={`/pokemon/${pokemon.id}`}>
+                                        <PokeCard
+                                            name={pokemon.name}
+                                            id={pokemon.id}
+                                            image={pokemon.sprites.front_default}
+                                            types={pokemon.types}
+                                            evolution={pokemon.species.evolves_from_species}
+                                        />
+                                    </Link>
                                 </li>
                             );
                         })}
@@ -39,13 +43,15 @@ class PokeList extends Component {
                         .map((pokemon) => {
                             return (
                                 <li key={pokemon.id}>
-                                    <PokeCard
-                                        name={pokemon.name}
-                                        id={pokemon.id}
-                                        image={pokemon.sprites.front_default}
-                                        types={pokemon.types}
-                                        evolution={pokemon.species.evolves_from_species}
-                                    />
+                                    <Link to={`/pokemon/${pokemon.id}`}>
+                                        <PokeCard
+                                            name={pokemon.name}
+                                            id={pokemon.id}
+                                            image={pokemon.sprites.front_default}
+                                            types={pokemon.types}
+                                            evolution={pokemon.species.evolves_from_species}
+                                        />
+                                    </Link>
                                 </li>
                             );
                         })}

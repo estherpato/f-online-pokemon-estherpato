@@ -96,16 +96,36 @@ class App extends Component {
     render() {
         const { pokeArray, pokemonFiltered, value, fillInput } = this.state;
         console.log('Array para sacar info', this.state.pokeArray[1]);
-        if (this.state.pokeArray.length < 25) {
-            return (
-                <Fragment>
-                    <div className="top-corner top-corner__left"></div>
-                    <div className="top-corner top-corner__right"></div>
-                    <div className="bottom-corner bottom-corner__left"></div>
-                    <div className="bottom-corner bottom-corner__right"></div>
-                </Fragment>
-            );
-        }
+        return (
+            <Fragment>
+                <Switch>
+                    <Route
+                        exact path="/"
+                        render={props => <Home
+                            pokeArray={pokeArray}
+                            pokemonFiltered={pokemonFiltered}
+                            value={value}
+                            fillInput={fillInput}
+                            findMatches={this.findMatches}
+                        />}
+                    />
+                    <Route
+                        path="/pokemon/:id"
+                        render={(props) => <PokeDetail
+                            match={props.match}
+                            pokeArray={pokeArray}
+                            
+                        //onClickHandler={this.handleButton}
+                        />}
+                    />
+                </Switch>
+
+                <div className="top-corner top-corner__left"></div>
+                <div className="top-corner top-corner__right"></div>
+                <div className="bottom-corner bottom-corner__left"></div>
+                <div className="bottom-corner bottom-corner__right"></div>
+            </Fragment>
+        );
     }
 }
 

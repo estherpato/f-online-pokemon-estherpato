@@ -1,13 +1,12 @@
 import React, { Component, Fragment } from 'react';
-import PokeList from './PokeCard.js';
+import PokeList from './PokeList.js';
 import FilterInput from './FilterInput.js';
-
 
 class Home extends Component {
     render() {
-        const { pokeArray, pokemonFiltered, value, fillInput } = this.state;
-        console.log('Array para sacar info', this.state.pokeArray[1]);
-        if (this.state.pokeArray.length < 25) {
+        const { pokeArray, pokemonFiltered, value, fillInput, findMatches } = this.props;
+
+        if (pokeArray.length < 25) {
             return (
                 <div className="loading-container">
                     <img
@@ -21,10 +20,9 @@ class Home extends Component {
             );
         } else {
             return (
-                <Fragment>
                     <main>
                         <FilterInput
-                            findMatches={this.findMatches}
+                            findMatches={findMatches}
                             fillInput={fillInput}
                             inputValue={value}
                         />
@@ -34,11 +32,9 @@ class Home extends Component {
                             inputValue={value}
                         />
                     </main>
-                </Fragment>
             );
         }
     }
 }
-
 
 export default Home;
