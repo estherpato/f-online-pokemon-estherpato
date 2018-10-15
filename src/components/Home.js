@@ -1,6 +1,7 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PokeList from './PokeList.js';
 import FilterInput from './FilterInput.js';
+import PropTypes from 'prop-types';
 
 class Home extends Component {
     render() {
@@ -36,5 +37,15 @@ class Home extends Component {
         }
     }
 }
+
+Home.propTypes = {
+    inputValue: PropTypes.string || PropTypes.number,
+    findMatches: PropTypes.func.isRequired,
+    fillInput: PropTypes.bool,
+    pokeArray: PropTypes.array.isRequired,
+    pokemonFiltered: PropTypes.array.isRequired,
+    value: PropTypes.string
+}
+
 
 export default Home;

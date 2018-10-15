@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import '../stylesheets/PokeCard.css';
 
 class PokeCard extends Component {
@@ -41,6 +42,14 @@ class PokeCard extends Component {
             </div>
         );
     }
+}
+
+PokeCard.propTypes = {
+    name: PropTypes.string,
+    id: PropTypes.number,
+    image: PropTypes.string,
+    types: PropTypes.array,
+    evolution: PropTypes.object,
 }
 
 export default PokeCard;

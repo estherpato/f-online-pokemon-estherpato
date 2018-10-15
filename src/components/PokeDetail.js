@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import '../stylesheets/PokeDetail.css';
 
 class PokeDetail extends Component {
@@ -70,6 +71,11 @@ class PokeDetail extends Component {
             );
         }
     }
+}
+
+PokeDetail.propTypes = {
+    pokeArray: PropTypes.array,
+    match: PropTypes.object
 }
 
 export default PokeDetail;

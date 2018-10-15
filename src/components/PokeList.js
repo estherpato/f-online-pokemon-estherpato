@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PokeCard from './PokeCard.js';
+import PropTypes from 'prop-types';
 import '../stylesheets/PokeList.css';
 
 class PokeList extends Component {
@@ -59,6 +60,12 @@ class PokeList extends Component {
             );
         }
     }
+}
+
+PokeList.propTypes = {
+    pokeArray: PropTypes.array, 
+    pokemonFiltered: PropTypes.array, 
+    inputValue: PropTypes.string,
 }
 
 export default PokeList;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import '../stylesheets/FilterInput.css';
 
 class FilterInput extends Component {
@@ -24,6 +25,11 @@ class FilterInput extends Component {
             </div>
         );
     }
+}
+
+FilterInput.propTypes = {
+    inputValue: PropTypes.string,
+    findMatches: PropTypes.func.isRequired
 }
 
 export default FilterInput;

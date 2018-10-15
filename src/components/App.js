@@ -30,7 +30,7 @@ class App extends Component {
                     .then(res => res.json())
                     .then(data => {
                         pokemonsFromFetch.push(data);
-                        this.getSpecies(data.species.url, pokemonsFromFetch)
+                        this.getSpecies(data.species.url, pokemonsFromFetch)    
                     })
                     .catch(error => {
                         console.log('Hubo un problema con la petición: ' + error.message)
