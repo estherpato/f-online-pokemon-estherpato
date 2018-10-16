@@ -5,7 +5,13 @@ import PropTypes from 'prop-types';
 
 class Home extends Component {
     render() {
-        const { pokeArray, pokemonFiltered, value, fillInput, findMatches } = this.props;
+        const {
+            pokeArray,
+            pokemonFiltered,
+            value,
+            fillInput,
+            findMatches,
+        } = this.props;
 
         if (pokeArray.length < 25) {
             return (
@@ -21,18 +27,18 @@ class Home extends Component {
             );
         } else {
             return (
-                    <main>
-                        <FilterInput
-                            findMatches={findMatches}
-                            fillInput={fillInput}
-                            inputValue={value}
-                        />
-                        <PokeList
-                            pokeArray={pokeArray}
-                            pokemonFiltered={pokemonFiltered}
-                            inputValue={value}
-                        />
-                    </main>
+                <main>
+                    <FilterInput
+                        findMatches={findMatches}
+                        fillInput={fillInput}
+                        inputValue={value}
+                    />
+                    <PokeList
+                        pokeArray={pokeArray}
+                        pokemonFiltered={pokemonFiltered}
+                        inputValue={value}
+                    />
+                </main>
             );
         }
     }

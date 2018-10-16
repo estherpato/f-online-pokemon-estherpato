@@ -1,9 +1,14 @@
 .card-container {
     height: 260px;
     width: 240px;
-    border: 1px solid 888888;
+    border: 1px solid #888888;
     box-shadow: 1px 1px 8px #888888;
     margin: 15px;
+    transition: transform ease 1s;
+}
+
+.clicked {
+    border: 3px solid red;
 }
 
 .img-container {
